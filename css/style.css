@@ -1,0 +1,492 @@
+/* Import the 'Inter' font family from Google Fonts with weights 400, 600, and 700 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e1b4b 0%, #372c7a 100%);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1rem 3rem;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* On scroll for header */
+header.header.scrolled {
+    background-color: rgba(61, 41, 124, 0.85);
+    box-shadow: 0 2px 20px rgb(61 41 124 / 0.7);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 900;
+    font-size: 1.75rem;
+    color: #d4c3f7;
+    user-select: none;
+    cursor: pointer;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #6f54f5 0%, #c081fc 100%);
+    clip-path: polygon(50% 0%, 96% 25%, 96% 75%, 50% 100%, 4% 75%, 4% 25%);
+    filter: drop-shadow(0 0 4px #7b64fa);
+    border-radius: 6px;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    gap: 2.4rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nav-links a {
+    color: #c9c5fa;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: #ffffff;
+}
+
+/* Get started button */
+.btn-get-started {
+    background: #fff;
+    color: #4b3acc;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+    padding: 0.5rem 1.3rem;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgb(222 222 255 / 0.6);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-get-started:hover,
+.btn-get-started:focus {
+    background: transparent;
+    color: #ddd9ff;
+    border-color: #ddd9ff;
+    box-shadow: 0 0 14px 3px rgb(221 217 255 / 0.4);
+    outline: none;
+}
+
+/* Hero main layout */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rem 3rem 6rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: calc(100vh - 90px);
+    gap: 3rem;
+}
+
+.hero-left {
+    flex: 1 1 45%;
+    max-width: 550px;
+}
+
+.hero-title {
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+/* Smaller font on "AI Powered" with a subtle color shift */
+.hero-title .hero-title-ai {
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: #c9c5faaa;
+}
+
+.hero-subtitle {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #b5aeebcc;
+    max-width: 320px;
+    line-height: 1.6;
+}
+
+/* Hero right container */
+.hero-right {
+    flex: 1 1 50%;
+    max-width: 600px;
+    position: relative;
+    height: 450px;
+    user-select: none;
+    pointer-events: none;
+    perspective: 2000px;
+}
+
+/* Blob blur background (abstract shapes behind the path) */
+.background-blob {
+    position: absolute;
+    top: -60px;
+    left: 50px;
+    width: 400px;
+    height: 420px;
+    background:
+        radial-gradient(circle at 30% 30%, #7768f4dd 40%, transparent 70%),
+        radial-gradient(circle at 70% 70%, #ab8fffcc 50%, transparent 90%);
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* Path container: translucent tube path */
+.path-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(116, 67, 243, 0.06);
+    border-radius: 32px;
+    box-shadow:
+        inset 4px 4px 12px rgb(255 255 255 / 0.8),
+        inset -6px -6px 12px rgb(114 99 238 / 0.4);
+    overflow: visible;
+    z-index: 10;
+}
+
+.path-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    pointer-events: none;
+}
+
+/* The winding tube paths with 3D effect */
+.tube-path {
+    fill: none;
+    stroke: #c9c5fa;
+    stroke-width: 18;
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.15));
+}
+
+.tube-path-shadow {
+    fill: none;
+    stroke: #988def88;
+    stroke-width: 10;
+    filter: blur(4px);
+}
+
+/* The moving gold sphere */
+.gold-sphere {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at center, #ffd700 40%, #b8860b 90%);
+    border-radius: 50%;
+    box-shadow:
+        0 0 12px #ffea44,
+        inset 0 4px 6px #fff9aa;
+    top: 30px;
+    left: 20px;
+    will-change: transform;
+    pointer-events: none;
+    filter: drop-shadow(0 3px 6px rgba(184, 134, 11, 0.8));
+    mix-blend-mode: screen;
+    z-index: 20;
+    transition: box-shadow 0.2s ease;
+}
+
+/* Responsive Design */
+/* Extra small devices (phones < 360px) */
+@media (max-width: 360px) {
+    header.header {
+        padding: 0.8rem 1rem;
+    }
+
+    .hero-left {
+        padding-bottom: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .btn-get-started {
+        padding: 0.35rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-right {
+        height: 300px;
+    }
+
+    .path-container {
+        border-radius: 24px;
+        overflow: visible;
+    }
+
+    .background-blob {
+        width: 250px;
+        height: 250px;
+        top: -40px;
+        left: 20px;
+        filter: blur(60px);
+    }
+
+    .gold-sphere {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Extra small devices (phones < 360px) */
+@media (max-width: 360px) {
+    header.header {
+        padding: 0.8rem 1rem;
+    }
+
+    .hero-left {
+        padding-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .btn-get-started {
+        padding: 0.35rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-right {
+        height: 300px;
+    }
+
+    .background-blob {
+        width: 250px;
+        height: 250px;
+        top: -40px;
+        left: 20px;
+        filter: blur(60px);
+    }
+
+    .gold-sphere {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Small devices (phones: 361px - 480px) */
+@media (max-width: 480px) {
+    header.header {
+        padding: 1rem 1.5rem;
+    }
+
+    .hero-left {
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .btn-get-started {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .hero-right {
+        height: 350px;
+    }
+
+    .background-blob {
+        width: 300px;
+        height: 300px;
+        top: -50px;
+        left: 25px;
+        filter: blur(70px);
+    }
+
+    .gold-sphere {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Medium devices (tablets: 481px - 768px) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(61, 41, 124, 0.95);
+        padding: 1rem 2rem;
+        gap: 1rem;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        z-index: 99;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.mobile-active {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 6rem 2rem 4rem;
+        min-height: auto;
+    }
+
+    .hero-left,
+    .hero-right {
+        max-width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .btn-get-started {
+        margin-top: 1rem;
+    }
+
+    .hero-right {
+        height: 400px;
+    }
+
+    .background-blob {
+        width: 350px;
+        height: 350px;
+        top: -55px;
+        left: 40px;
+        filter: blur(75px);
+    }
+
+    .gold-sphere {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Large devices (desktops: 769px - 960px) */
+@media (max-width: 960px) {
+    .hero {
+        padding: 6rem 2rem 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-right {
+        height: 450px;
+    }
+
+    .background-blob {
+        width: 380px;
+        height: 380px;
+        top: -60px;
+        left: 50px;
+        filter: blur(80px);
+    }
+
+    .gold-sphere {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Extra large devices (desktops > 960px) */
+@media (min-width: 961px) {
+    .hero {
+        padding: 8rem 3rem 6rem;
+        min-height: calc(100vh - 90px);
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-right {
+        height: 450px;
+    }
+
+    .background-blob {
+        width: 400px;
+        height: 420px;
+        top: -60px;
+        left: 50px;
+        filter: blur(80px);
+    }
+
+    .gold-sphere {
+        width: 40px;
+        height: 40px;
+    }
+}
