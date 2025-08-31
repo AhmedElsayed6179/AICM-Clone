@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AICM Clone</title>
+    <!-- Load Tailwind CSS via CDN to use utility-first CSS classes without local installation -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- navbar -->
+    <header role="banner" aria-label="Site header" class="header">
+        <a href="#" class="logo" id="logo" aria-label="Go to homepage">
+            <div class="logo-icon" aria-hidden="true"></div>
+            <span>aicm</span>
+        </a>
+
+        <nav role="navigation" aria-label="Primary Navigation" class="nav-links" id="mainNav">
+            <a href="#" tabindex="0" rel="noopener noreferrer">Create a store</a>
+            <a href="#" tabindex="0" rel="noopener noreferrer">Advertise</a>
+            <a href="#" tabindex="0" rel="noopener noreferrer">Affiliate program</a>
+            <a href="#" tabindex="0" rel="noopener noreferrer">About</a>
+        </nav>
+
+        <button class="btn-get-started" type="button" aria-label="Get started">Get started</button>
+    </header>
+    <!-- Hero Section -->
+    <main role="main" aria-label="Landing page hero section" class="hero">
+        <section aria-labelledby="hero-title" class="hero-left">
+            <h1 id="hero-title" class="hero-title">
+                The Smarter, <br />
+                <span class="hero-title-ai">AI Powered</span><br />
+                Decentralized Marketplace
+            </h1>
+            <p class="hero-subtitle">Harness the power of decentralized AI marketplace with AICM.</p>
+        </section>
+        <!-- hero-right -->
+        <section aria-hidden="true" class="hero-right">
+            <div class="path-container">
+                <svg class="path-svg" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path class="tube-path-shadow" d="M50 150 C150 50 450 350 550 250" />
+                    <path class="tube-path" d="M50 150 C150 50 450 350 550 250" />
+                </svg>
+                <div class="gold-sphere" id="gold-sphere" aria-hidden="true"></div>
+            </div>
+            <div class="background-blob" aria-hidden="true"></div>
+        </section>
+    </main>
+    <!-- Linked external JavaScript file named script.js -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
